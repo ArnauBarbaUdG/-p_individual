@@ -9,11 +9,11 @@ body {
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 20px;
-	padding-top: 20px;
+	margin-top: -20px;
   }
   
   input[type="submit"] {
-	background-color: #1abc9c;
+	background-color: #1471c9;
 	border: none;
 	color: #fff;
 	padding: 10px 20px;
@@ -23,7 +23,7 @@ body {
   }
   
   input[type="submit"]:hover {
-	background-color: #16a085;
+	background-color: #1471c9;
   }
   
   p {
