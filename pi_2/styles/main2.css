@@ -1,14 +1,45 @@
-title{
-	font-size: 26px;
-	line-height: 75px;
-
-p{
-	font-size: 26px;
-	line-height: 75px;
+body {
+	background-color: #f2f2f2;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+  }
+  
+  form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+  }
+  
+  input[type="submit"] {
+	background-color: #1abc9c;
+	border: none;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+	background-color: #16a085;
+  }
+  
+  p {
+	font-size: 24px;
+	font-weight: bold;
 	text-align: center;
-}
-
-form {
-	text-align: center;
-}
+  }
+  
+  .container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
