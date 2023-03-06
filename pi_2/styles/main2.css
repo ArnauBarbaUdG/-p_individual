@@ -4,18 +4,12 @@ body {
 	padding: 0;
   }
   
-  .container {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 20px;
-  }
-  
   form {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 20px;
-	margin-top: 20px;
+	padding-top: 20px;
   }
   
   input[type="submit"] {
@@ -37,10 +31,4 @@ body {
 	font-weight: bold;
 	text-align: center;
   }
-  
-  .container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-
+ 
