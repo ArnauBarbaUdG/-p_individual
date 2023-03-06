@@ -1,12 +1,14 @@
-#title{
+title{
 	font-size: 26px;
 	line-height: 75px;
 
 p{
+	font-size: 26px;
+	line-height: 75px;
 	text-align: center;
 }
 
 form {
-	
-	}
+	text-align: center;
+}
 
