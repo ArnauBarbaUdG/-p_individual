@@ -3,7 +3,7 @@
 	line-height: 75px;
 }
 
-.menu-object{
+body{
 	display:block;
 	margin-left: auto;
 	margin-right: auto;
@@ -13,7 +13,7 @@
 	margin-top: 10px;
 }
 
-p{
+body{
 	text-align: center;
 }
 
