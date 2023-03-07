@@ -30,3 +30,18 @@ button.menu-object:hover:not(:active){
 	width: 20.313;
 	height: 5.313;
 }
+
+a{
+	margin-top: 1.75rem ;
+	font-size: 0.25rem;
+}
+
+div {
+	display: flex;
+	justify-content: center;
+	margin: 0.25rem;
+  }
+
+  img {
+	margin: 0 0.625rem;
+  }
