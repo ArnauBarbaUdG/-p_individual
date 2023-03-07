@@ -8,7 +8,7 @@ function exit (){
 		alert("Leaving " + name + "'s game");
 	}
 	name = "";
-	href="../";
+	document.location.href="../index.html";
 }
 
 function options(){
