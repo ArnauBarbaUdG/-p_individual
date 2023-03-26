@@ -19,10 +19,17 @@ var game = new Vue({
 		this.items = this.items.slice(0, this.num_cards); // Agafem els primers numCards elements
 		this.items = this.items.concat(this.items); // Dupliquem els elements
 		this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
-		this.num_cards = this.num_cards_opc; // Igualem el nombre de cartes entrat amb les opcions
+		this.num_cards = this.num_cards_opc;
 		for (var i = 0; i < this.items.length; i++){
-			this.current_card.push({done: false, texture: back});
+			this.current_card.push({done: false, texture: this.items[i]});
 		}
+		setTimeout(() => {
+			for (var i = 0; i < this.current_card.length; i++){
+				if (!this.current_card[i].done) {
+					Vue.set(this.current_card, i, {done: false, texture: back});
+				}
+			}
+		}, 1000);
 	},
 	methods: {
 		clickCard: function(i){
