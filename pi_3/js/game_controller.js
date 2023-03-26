@@ -8,6 +8,7 @@ var game = new Vue({
 		username:'',
 		current_card: [],
 		items: [],
+		num_cards_options: 2,
 		num_cards: 2,
 		bad_clicks: 0
 	},
@@ -18,6 +19,7 @@ var game = new Vue({
 		this.items = this.items.slice(0, this.num_cards); // Agafem els primers numCards elements
 		this.items = this.items.concat(this.items); // Dupliquem els elements
 		this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
+		this.num_cards = this.num_cards_options;
 		for (var i = 0; i < this.items.length; i++){
 			this.current_card.push({done: false, texture: back});
 		}
@@ -61,6 +63,8 @@ var game = new Vue({
 		}
 	}
 });
+
+
 
 
 
