@@ -1,6 +1,7 @@
 const back = "../resources/back.png";
-const items = ["../resources/cb.png","../resources/co.png","../resources/sb.png",
-"../resources/so.png","../resources/tb.png","../resources/to.png"];
+const items_easy = ["../resources/cb.png","../resources/co.png","../resources/sb.png","../resources/so.png"];
+const items_medium = ["../resources/cb.png","../resources/co.png","../resources/sb.png","../resources/so.png","../resources/tb.png","../resources/to.png"];
+const items_hard = ["../resources/cb.png","../resources/co.png","../resources/sb.png","../resources/so.png","../resources/tb.png","../resources/to.png","../resources/tt.png","../resources/cp.png"];
 
 var game = new Vue({
 	el: "#game_id",
@@ -10,10 +11,28 @@ var game = new Vue({
 		items: [],
 		num_cards_opc: 2,
 		num_cards: 2,
-		bad_clicks: 0
+		bad_clicks: 0,
+		difficulty: 'easy'
 	},
+	setDifficulty: function (difficulty) {
+			this.difficulty = difficulty;
+		switch (difficulty) {
+		case 'easy':
+			this.items = items_easy.slice(); // Copiem l'array
+		break;
+		case 'medium':
+			this.items = items_medium.slice(); // Copiem l'array
+		break;
+		case 'hard':
+			this.items = items_hard.slice(); // Copiem l'array
+		break;
+		default:
+			this.items = items_easy.slice(); // Copiem l'array
+		}
+	}
 	created: function(){
 		this.username = sessionStorage.getItem("username","unknown");
+		this.setDifficulty(this.difficulty);
 		this.items = items.slice(); // Copiem l'array
 		this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 		this.items = this.items.slice(0, this.num_cards); // Agafem els primers numCards elements
@@ -36,7 +55,20 @@ var game = new Vue({
 			if (!this.current_card[i].done && this.current_card[i].texture === back)
 				Vue.set(this.current_card, i, {done: false, texture: this.items[i]});
 		}
-	},
+
+		setTime: function () {
+			switch (this.difficulty) {
+			case 'easy':
+				return 1000;
+			case 'medium':
+				return 5000;
+			case 'hard':
+				return 10000;
+			default:
+				return 1000;
+			}
+		},
+		
 	watch: {
 		current_card: function(value){
 			if (value.texture === back) return;
