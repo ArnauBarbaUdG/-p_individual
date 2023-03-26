@@ -11,6 +11,7 @@ function exit (){
 		alert("Leaving " + name + "'s game");
 	}
 	name = "";
+	document.location.href="../index.html";
 }
 
 function options(){
