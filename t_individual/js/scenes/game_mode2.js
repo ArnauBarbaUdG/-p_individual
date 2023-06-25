@@ -201,8 +201,8 @@ class GameScene extends Phaser.Scene {
 		text.setOrigin(0.65, -1.25);
 		text.setY(text.height / 2);
         const button = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 150, 'button');
-		button.scaleX = .6;
-		button.scaleY = .6;
+		button.scaleX = .45;
+		button.scaleY = .45;
         button.setInteractive();
         const buttonText = this.add.text(0, 0, '', { fontSize: '64px', fill: '#000', fontWeight: 'bold'});
         Phaser.Display.Align.In.Center(buttonText, button);
