@@ -149,8 +149,8 @@ class GameScene extends Phaser.Scene {
 			});
 		}, temps)
         const button = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 150, 'button');
-		button.scaleX = .55;
-		button.scaleY = .55;
+		button.scaleX = .45;
+		button.scaleY = .45;
         button.setInteractive();
         const buttonText = this.add.text(0, 0, '',)
         Phaser.Display.Align.In.Center(buttonText, button);
