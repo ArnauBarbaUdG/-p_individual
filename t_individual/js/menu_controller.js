@@ -7,23 +7,24 @@ var menu = new Vue({
 		this.divided= false
 	},
 	methods: {
+		// Mètode per dividir el joc
 		divideGame() {
-		  // Obtiene el elemento del botón del juego Phaser
 		  this.divided = !this.divided
 		},
+		// Mètode per carregar una partida
 		load() {
-		  // Lógica para el botón Load Game
 		  loadpage("./html/load.html");
 		},
+		// Mètode per accedir a les opcions
 		options() {
-		  // Lógica para el botón Options
 		  loadpage("./html/options.html");
 		},
+		// Mètode per accedir al marcador
 		scoreboard(){
 			loadpage("./html/ranking.html");
 		},
+		// Mètode per sortir del joc
 		exit() {
-		// Lógica para el botón Exit
 		  	if (name != ""){
 				alert("Leaving " + name + "'s game");
 			}
@@ -31,15 +32,15 @@ var menu = new Vue({
 			localStorage.clear();
 			loadpage("../index.html");
 		},
+		// Mètode per iniciar el mode 1 del joc
 		mode1() {
-		// Lógica para la opción normal
 			sessionStorage.clear();
 		  	name = prompt("User name");
 		  	sessionStorage.setItem("playerName", name);
 			loadpage("./html/game_mode1.html");
 		},
+		// Mètode per iniciar el mode 2 del joc
 		mode2() {
-		 	// Lógica para la opción 2
 			sessionStorage.clear();
 		  	name = prompt("User name");
 		  	sessionStorage.setItem("playerName", name);
