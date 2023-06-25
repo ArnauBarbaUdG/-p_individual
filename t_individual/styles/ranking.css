@@ -40,9 +40,13 @@ button {
 	grid-template-columns: 1fr 20rem 20rem 1fr;
 	grid-gap: 0.625rem;
 }
+
 .score-label{
 	font-weight: bold;
-	font-size: 0.8em;
+	color: #4895de;
+	font-size: 1.75rem;
+	padding-top: 0.75rem;
+	margin-bottom: 1rem;
     text-transform: uppercase;
 }
 
