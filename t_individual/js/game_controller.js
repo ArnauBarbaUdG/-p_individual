@@ -1,7 +1,9 @@
 var gameObj = function (){
+	// Definició de les imatges
 	const back = "../resources/back.png";
 	const items = ["../resources/cb.png","../resources/co.png","../resources/sb.png",
 	"../resources/so.png","../resources/tb.png","../resources/to.png"];
+	// Comprovació de si hi ha una partida guardada
 	let l_partida = null;
 	if (sessionStorage.idPartida && localStorage.partides){
 		let arrayPartides = JSON.parse(localStorage.partides);
@@ -18,6 +20,7 @@ var gameObj = function (){
 			bad_clicks: 0
 		},
 		created: function(){
+			// Si hi ha una partida guardada, es carreguen les dades
 			if (l_partida){
 				this.username = l_partida.username;
 				this.current_card = l_partida.current_card;
@@ -26,12 +29,15 @@ var gameObj = function (){
 				this.bad_clicks = l_partida.bad_clicks;
 			}
 			else{
+				// Si no hi ha una partida guardada, es carreguen les opcions per defecte
 				this.username = sessionStorage.getItem("username","unknown");
-				this.items = items.slice(); // Copiem l'array
-				this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
-				this.items = this.items.slice(0, this.num_cards); // Agafem els primers numCards elements
-				this.items = this.items.concat(this.items); // Dupliquem els elements
-				this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
+				// Es seleccionen les cartes a mostrar i es barregen
+				this.items = items.slice(); 
+				this.items.sort(function(){return Math.random() - 0.5}); 
+				this.items = this.items.slice(0, this.num_cards);
+				// Es duplica l'array de cartes i es torna a barrejar
+				this.items = this.items.concat(this.items); 
+				this.items.sort(function(){return Math.random() - 0.5}); 
 				for (var i = 0; i < this.items.length; i++){
 					this.current_card.push({done: false, texture: back});
 				}
@@ -39,10 +45,12 @@ var gameObj = function (){
 			sessionStorage.clear();
 		},
 		methods: {
+			// Mètode per mostrar la carta seleccionada
 			clickCard: function(i){
 				if (!this.current_card[i].done && this.current_card[i].texture === back)
 					Vue.set(this.current_card, i, {done: false, texture: this.items[i]});
 			},
+			// Mètode per guardar la partida al servidor
 			save: function(){
 				fetch("../php/save.php", {
 					method: "POST",
@@ -62,6 +70,7 @@ var gameObj = function (){
 					this.local_save();
 				});
 			},
+			// Mètode per guardar la partida localment
 			local_save: function(){
 				let partida = {
 					username: this.username,
@@ -81,6 +90,7 @@ var gameObj = function (){
 			}
 		},
 		watch: {
+			// Es vigila si les cartes seleccionades coincideixen
 			current_card: function(value){
 				if (value.texture === back) return;
 				var front = null;
@@ -108,6 +118,7 @@ var gameObj = function (){
 			}
 		},
 		computed: {
+			// Es calcula la puntuació actual
 			score_text: function(){
 				return 100 - this.bad_clicks * 20;
 			}
