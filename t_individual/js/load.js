@@ -1,10 +1,12 @@
 var load_obj = function(){
+	// Creem la instància de Vue
 	var vue_instance = new Vue({
 		el: "#saves_id",
 		data: {
 			saves: []
 		},
 		created: function(){
+			// Es carreguen les partides guardades
 			let arrayPartides = [];
 			if(localStorage.partides){
 				arrayPartides = JSON.parse(localStorage.partides);
@@ -14,6 +16,7 @@ var load_obj = function(){
 			console.log(this.saves);
 		},
 		methods: { 
+			// Mètode per carregar una partida guardada
 			load: function(i){
 				sessionStorage.idPartida = i;
 				if(this.saves[i].infinite){
